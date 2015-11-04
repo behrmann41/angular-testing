@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>{{ greeting }} World</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  </head>
+  <body>
+    <h1>Angular Testing</h1>
+    <p>{{1 + 6}}<p>
+    <p>Say something to the world <input type="text" ng-model="greeting" ng-init="greeting='Hello, '"></p>
+    <p>{{ greeting }} world!</p>
+    <input type='text' placeholder="What is your name?" ng-model='name'>
+    <h2>My name is: {{ name }}</h2>
+    <select ng-model="animal" ng-init="animal='Select One'">
+      <option selected disabled>Select One</option>
+      <option value='dogs'>Dogs</option>
+      <option value='cats'>Cats</option>
+      <option value='dogs &amp cats'>Dogs &amp Cats</option>
+      <option value='neither'>Neither</option>
+    </select>
+    <h4>I love: {{ animal }}</h4>
+  </body>
+</html>
