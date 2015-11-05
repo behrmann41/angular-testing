@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="madLibs">
+  <head>
+    <title>Angular Mad Libs!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div ng-controller='libcontroller'>
+      <h1 class="text-center">Please Fill out the following form!</h1>
+      <hr>
+        <div class="form-group">
+          <label for="BoyName" class="col-sm-2 control-label">Boy's Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="BoyName" placeholder="Enter a boy's name" ng-model="libs.bname">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="adjective" class="col-sm-2 control-label">Adjective</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="adjective" placeholder="Enter an adjective" ng-model='libs.adjective'>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pluralNoun" class="col-sm-2 control-label">Plural Noun</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="pluralNoun" placeholder="Enter an plural noun" ng-model='libs.pnoun1'>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="insect" class="col-sm-2 control-label">Plural Insect</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="insect" placeholder="Enter a plural insect" ng-model='libs.insect'>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pluralNoun2" class="col-sm-2 control-label">Plural Noun</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="pluralNoun2" placeholder="Enter an Plural Noun" ng-model='libs.pnoun2'>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="verb" class="col-sm-2 control-label">Verb ending in s</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="verb" placeholder="Enter a verb" ng-model='libs.verb'>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button ng-click='btn = true' class="btn btn-default">Generate</button>
+          </div>
+        </div>
+      <div class='container'>
+        <section ng-show='btn'>
+          <h1>Mad with the Libs!</h1>
+          <hr>
+          <h3>I'm in love with <span>{{ libs.bname | uppercase }}</span>. He's so <span>{{ libs.adjective | uppercase }}</span>! He has big flat <span>{{ libs.pnoun1 | uppercase }}</span>, and when our <span>{{ libs.insect | uppercase }}</span> meet, I get <span>{{ libs.pnoun2 | uppercase }}</span> in my stomach. I've fallen for him like a ton of <span>{{  libs.verb | uppercase }}</span>, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</h3>
+          <button ng-click='libs={}; btn = false;' class="btn btn-success">Play Again</button>
+        </section>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      angular.module('madLibs', [])
+        .controller('libcontroller', function ($scope){
+          $scope.libs = {}
+        })
+    </script>
+  </body>
+</html>

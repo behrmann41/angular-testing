@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World!</title>
+  </head>
+  <body>
+    <div ng-controller="HelloController">
+      <h2>Hello, {{hello.title}}!</h2>
+      <p>{{3.14159265359 | currency:"&euro;"}}</p>
+      <section>
+        <h3>Speech Testing</h3>
+        <input type='text' ng-model="speech">
+        <p>whispering: {{ speech | lowercase }} </p>
+        <p><strong>Yelling: </strong>{{ speech | uppercase }}</p>
+      </section>
+      <section>
+        <p>{{3.14159265359 | number:3}}</p>
+        <p>{{3.14159265359 | number:6}}</p>
+        <p>{{3.14159265359 | number:1}}</p>
+      </section>
+      <section>
+        <h3>Pluralize!</h3>
+        <p>How Many digits of Pi would you like? 
+          <select ng-model='pi' ng-init="pi='0'">
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+          </select>
+        </p>
+        <p>Here you go! The first {{ pi }} 
+          <ng-pluralize count="pi"
+                        when="{'0': 'Digits',
+                               'one': 'Digit',
+                               'other': 'Digits'}">
+          </ng-pluralize> of Pie!
+        </p>
+        <p>{{ 3.14159265359 | number:pi }} </p>
+      </section>
+      <section>
+        <h3>Super Useful Tip Calculator</h3>
+        <p>How much did your meal cost?
+          <input type='number' ng-model='total'>
+        </p>
+        <p>How much do you want to tip?</p>
+        <select ng-model='tip'>
+          <option value='0.10'>10%</option>
+          <option value='0.15'>15%</option>
+          <option value='0.20'>20%</option>
+        </select>
+        <p><strong>Subtotal: </strong>{{ total | currency }}</p>
+        <p><strong>Tip: </strong>{{ total * tip | currency }}</p>
+      </section>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script>
+    angular.module("myapp", [])
+      .controller("HelloController", function($scope) {
+        $scope.hello = {};
+        $scope.hello.title = "World";
+      });
+    </script>
+  </body>
+</html>
