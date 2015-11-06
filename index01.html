@@ -21,7 +21,7 @@
       </section>
       <section>
         <h3>Pluralize!</h3>
-        <p>How Many digits of Pi would you like? 
+        <p>How Many digits of Pi would you like?
           <select ng-model='pi' ng-init="pi='0'">
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -32,7 +32,7 @@
             <option value='7'>7</option>
           </select>
         </p>
-        <p>Here you go! The first {{ pi }} 
+        <p>Here you go! The first {{ pi }}
           <ng-pluralize count="pi"
                         when="{'0': 'Digits',
                                'one': 'Digit',

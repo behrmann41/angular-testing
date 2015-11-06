@@ -1,0 +1,12 @@
+.success {
+  color: green;
+}
+
+.danger {
+  color: red;
+}
+
+.thumbnail > img {
+  height: 200px;
+  width: 250px;
+}

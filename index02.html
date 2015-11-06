@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="testing">
+  <head>
+    <title></title>
+    <link rel='stylesheet' href="https://bootswatch.com/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  </head>
+  <body class='ng-cloak'>
+    <div ng-controller='myController'>
+      <section>
+        <ul ng-repeat='symbol in symbols'>
+          <li ng-bind-html='symbol'> {{ symbol }} </li>
+        </ul>
+      </section>
+      <section>
+        <ul ng-repeat='number in numbers track by $index'>
+          <li> {{ number }} </li>
+        </ul>
+      </section>
+      <section>
+        <ul ng-repeat='item in second'>
+          <li>{{ item.name }}</li>
+        </ul>
+      </section>
+      <section>
+        <ul ng-repeat='key in third'>
+          <li>{{ key }}</li>
+        </ul>
+      </section>
+      <div class='container'>
+        <h2>Sign Up Page</h2>
+        <input ng-class='{danger: password.length < 6, success: password.length >= 6 }' type='password' ng-model='password'><br/>
+        <p ng-class='{danger: password.length < 6, success: password.length >= 6}'>Your password is {{password.length}} characters</p>
+        <button ng-show='password.length >= 6'>Sign Up!</button>
+        <p ng-show='password.length < 6'>Password invalid</p>
+      </div>
+    </div>
+      <div class='container' ng-controller='cameraController'>
+        <h2>Camera Shop</h2>
+        <select ng-model='option'>
+          <option value='rating'>Rating</option>
+          <option value='price'>Price</option>
+        </select>
+        <div class="row">
+          <div ng-repeat='camera in cameras | orderBy: option' class="col-md-4 camera">
+            <div class="thumbnail">
+              <img ng-src="{{camera.image}}" alt="...">
+              <div class="caption">
+                <h2>{{camera.title}}</h2>
+                <h3 ng-hide='camera.onSale'>price: {{camera.price | currency}}</h3>
+                <h3 ng-show='camera.onSale' class='text-warning'> price: {{camera.price | currency}} ON SALE! </h3>
+                <h3>rating: {{camera.rating}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src='./app02.js'></script>
+  </body>
+</html>
