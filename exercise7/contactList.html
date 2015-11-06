@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app='contactList'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+  </head>
+  <body ng-controller='contactList'>
+    <div class="row">
+      <div class="container">
+        <h2>Contacts App</h2>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id='name' ng-model='newName'>
+          <label for="email">Email</label>
+          <input type="text" id='email' ng-model='newEmail'>
+          <label for="number">Phone Number</label>
+          <input type="text" id='number' ng-model='newNumber'>
+          <button class="btn-success" ng-click='addContact()'>Add Contact</button>
+        </form>
+        <section>
+          <label for="search">Search</label>
+          <input type="text" ng-model='search'>
+        </section>
+        <div class="row">
+          <table class='table table-striped table-bordered'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat='contact in contacts | filter: search'>
+                <td>{{contact.name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.number}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
+  <script type="text/javascript" src='./listApp.js'></script>
+  </body>
+</html>
