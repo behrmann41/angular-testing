@@ -1,8 +1,46 @@
 extends layout
 
 block content
-  .container(ng-controller='CloneController')
-    h1= title
-    p Welcome to #{title}
-    p {{ hello }}
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Reddit Clone
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li
+            button.btn.btn-default(class='glyphicon glyphicon-plus' ng-click='submitPost()') Submit Post
+        form.navbar-form.navbar-left(role='search')
+          .form-group
+            input.form-control(type='text', placeholder='Search')
+        ul.nav.navbar-left
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+              | Sort By
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+  .container
+    .row
+      .col-md-6.col-md-offset-2
+        form(ng-show='showForm')
+          label(for='title') Title
+          input.form-control(id='title' ng-model='newPost.title')
+          label(for='author') Author
+          input.form-control(id='author' ng-model='newPost.author')
+          label(for="imageUrl") Image URL
+          input.form-control(id='imageUrl' ng-model='newPost.imageUrl')
+          label(for='description') Description
+          input.form-control(id='description' ng-model='newPost.description')
   

@@ -4,8 +4,9 @@ html(ng-app="redditClone")
     title= title
     link(rel='stylesheet', href='https://bootswatch.com/simplex/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+  body(ng-controller='CloneController')
     block content
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
     script(src='../javascripts/app.js')
