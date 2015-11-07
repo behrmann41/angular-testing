@@ -18,7 +18,7 @@ block content
             button.btn.btn-default(class='glyphicon glyphicon-plus' ng-click='postForm()') Submit Post
         form.navbar-form.navbar-left(role='search')
           .form-group
-            input.form-control(type='text', placeholder='Search')
+            input.form-control(type='text', ng-model='search' placeholder='Search')
         ul.nav.navbar-left
           li.dropdown
             a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
@@ -34,17 +34,21 @@ block content
   .container
     .row
       .col-md-8.col-md-offset-2(ng-show='showForm')
-        form
+        form(name='formPost' novalidate)
           label(for='title') Title
-          input.form-control(id='title' ng-model='newPost.title')
+          input.form-control(id='title' ng-class="{invalid: formPost.title.$error.required}" name='title' ng-model='title' placeholder="Enter Title" required)
+          p.text-danger(ng-show="formPost.title.$error.required") Please Enter a Title
           label(for='author') Author
-          input.form-control(id='author' ng-model='newPost.author')
+          input.form-control(id='author' ng-class="{invalid: formPost.author.$error.required}" name="author" ng-model='author' placeholder="Enter Author" required)
+          p.text-danger(ng-show="formPost.author.$error.required") Please Enter a Title
           label(for="imageUrl") Image URL
-          input.form-control(id='imageUrl' ng-model='newPost.imageUrl')
+          input.form-control(id='imageUrl' ng-class="{invalid: formPost.imageUrl.$error.required}" name="imageUrl" ng-model='imageUrl' placeholder="Enter Image URL" required)
+          p.text-danger(ng-show="formPost.imageUrl.$error.required") Please Enter a Title
           label(for='description') Description
-          input.form-control(id='description' ng-model='newPost.description')
-          input.btn.btn-info(ng-click='submitPost()' value='Submit Post' id='submitBtn')
-    .row(ng-repeat='post in posts')
+          input.form-control(id='description' ng-class="{invalid: formPost.description.$error.required}" name="description" ng-model='description' placeholder="Enter a description" required)
+          p.text-danger(ng-show="formPost.description.$error.required") Please Enter a Title
+          input.btn.btn-info(ng-disabled="formPost.$invalid" ng-click='submitPost(formPost.$valid)' value='Submit Post' id='submitBtn')
+    .row(ng-repeat='post in posts | filter: search')
       .col-md-12
         .row
           .col-md-3

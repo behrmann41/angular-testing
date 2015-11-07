@@ -11,14 +11,15 @@ app.controller('CloneController', function($scope){
   $scope.postForm = function (){
     $scope.showForm = ($scope.showForm === true) ? false : true
   }
-  $scope.submitPost = function (){
-    $scope.newPost = {  title: $scope.newPost.title,
-                        author: $scope.newPost.author,
-                        description: $scope.newPost.description,
-                        imageUrl: $scope.newPost.imageUrl
-                      }
-    $scope.posts.push($scope.newPost)
-    $scope.newPost = {}
-    $scope.showForm = false
+  $scope.submitPost = function (valid){
+    if (valid){
+      $scope.newPost = {  title: this.title,
+                          author: this.author,
+                          description: this.description,
+                          imageUrl: this.imageUrl
+                        }
+      $scope.posts.push($scope.newPost)
+      $scope.showForm = false
+    }
   }
 })
