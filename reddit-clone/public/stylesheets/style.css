@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.thumbnail > img {
+  height: 150px;
+  width: 100%;
+}
+
+.thumbnail {
+  margin-top: 20px;
+}
+
+#submitBtn {
+  margin-top: 20px;
+}
