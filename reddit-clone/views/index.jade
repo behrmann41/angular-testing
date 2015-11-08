@@ -33,7 +33,7 @@ block content
                 a(href='#') Time
   .container
     .row
-      .col-md-8.col-md-offset-2(ng-show='showForm')
+      .col-md-8.col-md-offset-2(ng-show='showForm' ng-cloak)
         form(name='formPost' novalidate)
           label(for='title') Title
           input.form-control(id='title' ng-class="{invalid: formPost.title.$error.required}" name='title' ng-model='title' placeholder="Enter Title" required)
@@ -57,7 +57,8 @@ block content
           .col-md-9
             h3 {{post.title}} |
               i(class='glyphicon glyphicon-upload')
-              i(class='glyphicon glyphicon-download')
+              i(class='glyphicon glyphicon-download') |
+              span {{post.votes}}
             p.pull-right By: {{post.author}}
             .row
               .col-md-11
