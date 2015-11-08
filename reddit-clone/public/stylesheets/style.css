@@ -19,3 +19,7 @@ a {
 #submitBtn {
   margin-top: 20px;
 }
+
+.dropdown-menu > li {
+  cursor: pointer;
+}

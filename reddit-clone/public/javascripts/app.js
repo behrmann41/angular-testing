@@ -26,4 +26,7 @@ app.controller('CloneController', function($scope){
       $scope.showForm = false
     }
   }
+  $scope.sortBy = function (catagory){
+    $scope.sorting = catagory;
+  }
 })
