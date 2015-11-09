@@ -68,5 +68,7 @@ block content
                     | Time  |
                   i(class="glyphicon glyphicon-comment")
                     | Comments  |
-                  i(id="addComment" class="glyphicon glyphicon-chevron-right")
+                  i(id="addComment" class="glyphicon glyphicon-chevron-right" ng-click='commentForm()')
                     | Add Comment
+        form(name='commentForm' ng-cloak ng-show='showCommentForm')
+          
