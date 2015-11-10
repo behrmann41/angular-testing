@@ -20,6 +20,12 @@ a {
   margin-top: 20px;
 }
 
+#commentBtn {
+  margin-top: 20px;
+}
+.glyphicon-comment {
+  cursor: pointer;
+}
 .dropdown-menu > li {
   cursor: pointer;
 }

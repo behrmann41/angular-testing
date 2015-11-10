@@ -66,9 +66,23 @@ block content
                 p
                   i(class="glyphicon glyphicon-time")
                     | Time  |
-                  i(class="glyphicon glyphicon-comment")
-                    | Comments  |
-                  i(id="addComment" class="glyphicon glyphicon-chevron-right" ng-click='commentForm()')
+                  i(class="glyphicon glyphicon-comment" ng-click='postComments()')
+                    | {{post.comments.length}}
+                    ng-pluralize(count="post.comments.length" when="{'0': 'comments', '1': 'comment', 'other': 'comments'}")
+                  i(id="addComment" class="glyphicon glyphicon-chevron-right" ng-click='displayCommentForm()')
                     | Add Comment
-        form(name='commentForm' ng-cloak ng-show='showCommentForm')
+                p(ng-show='thisComment' ng-repeat='comment in post.comments')
+                  span
+                    strong {{comment.commentAuthor}}
+                  |  wrote:
+                  span
+                  |  {{comment.message}}
+                form(name='commentForm' ng-cloak ng-show='showCommentForm' novalidate)
+                  label(for='commentAuthor') Author
+                  input.form-control(id='commentAuthor' ng-class="{invalid: commentForm.commentAuthor.$error.required}" name='commentAuthor' ng-model='commentAuthor' placeholder="Author Name" required)
+                  p.text-danger(ng-show="commentForm.commentAuthor.$error.required") Please enter a name
+                  label(for='message') Author
+                  input.form-control(id='message' ng-class="{invalid: commentForm.message.$error.required}" name="message" ng-model='message' placeholder="Enter Comment" required)
+                  p.text-danger(ng-show="commentForm.message.$error.required") Please Enter a Comment
+                  input.btn.btn-info(ng-disabled='commentForm.$invalid' ng-click='submitComment(commentForm.$valid)' value='Submit Comment' id='commentBtn')
           
