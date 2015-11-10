@@ -1,0 +1,26 @@
+doctype html
+html(ng-app='portfolio')
+  head
+    title= title
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js')
+    script(src="//code.jquery.com/jquery-1.11.3.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    script(src='../javascripts/app.js')
+    script(src='../javascripts/controllers.js')
+    base(href='/')
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        ul.nav.navbar-nav
+          li
+            a(href='/') Home
+          li
+            a(href='/projects') Projects
+          li
+            a(href='/bio') Bio 
+          li
+            a(href='/resume') Resume
+    ng-view
