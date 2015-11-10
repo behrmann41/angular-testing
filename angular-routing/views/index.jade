@@ -1,7 +1,20 @@
-extends layout
-
-block content
-  h1 Nav Bar
-  p {{4+4}}
-  div(ng-view)
-  h1 Footer
+doctype html
+html(ng-app="route-test")
+  head
+    title= title
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js")
+    script(src="//code.jquery.com/jquery-1.11.3.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    script(src='../javascripts/app.js')
+    script(src='../javascripts/controllers.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    base(href='/')
+  body(ng-cloak)
+    h1 Nav Bar
+    a(href='/dogs') dogs
+    p
+    a(href='/') home
+    p {{4+4}}
+    div(ng-view)
+    h1 Footer
