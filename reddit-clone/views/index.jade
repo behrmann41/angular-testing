@@ -56,8 +56,8 @@ block content
               img(ng-src="{{post.imageUrl}}")
           .col-md-9
             h3 {{post.title}} |
-              i(ng-click='post.votes = post.votes + 1' class='glyphicon glyphicon-upload')
-              i(ng-click='post.votes = post.votes - 1' class='glyphicon glyphicon-download') |
+              i(ng-click='upvote()' class='glyphicon glyphicon-upload')
+              i(ng-click='downvote()' class='glyphicon glyphicon-download') |
               span {{post.votes}}
             p.pull-right By: {{post.author}}
             .row

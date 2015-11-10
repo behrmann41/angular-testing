@@ -32,4 +32,10 @@ app.controller('CloneController', function($scope){
   $scope.sortBy = function (catagory){
     $scope.sorting = catagory;
   }
+  $scope.upvote = function (){
+    this.post.votes++
+  }
+  $scope.downvote = function (){
+    this.post.votes--
+  }
 })
