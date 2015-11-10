@@ -17,20 +17,26 @@ app.controller('CloneController', function($scope){
     $scope.showForm = ($scope.showForm === true) ? false : true
   }
   $scope.displayCommentForm = function () {
-    $scope.showCommentForm = ($scope.showCommentForm === true) ? false : true
+    this.showCommentForm = (this.showCommentForm === true) ? false : true
   }
   $scope.postComments = function (){
-    $scope.thisComment = ($scope.thisComment === true) ? false : true
+    this.thisComment = (this.thisComment === true) ? false : true
   }
   $scope.submitPost = function (valid){
     if (valid){
       $scope.newPost = {  title: this.title,
                           author: this.author,
                           description: this.description,
-                          imageUrl: this.imageUrl
+                          imageUrl: this.imageUrl,
+                          comments: [],
+                          votes: 0
                         }
       $scope.posts.push($scope.newPost)
       $scope.showForm = false
+      this.title = ''
+      this.author = ''
+      this.description = ''
+      this.imageUrl = ''
     }
   }
   $scope.submitComment = function (valid){
@@ -40,6 +46,8 @@ app.controller('CloneController', function($scope){
                           }
       this.post.comments.push(newComment)
       $scope.showCommentForm = false
+      this.commentAuthor = ''
+      this.message = ''
     }
   }
   $scope.sortBy = function (catagory){
