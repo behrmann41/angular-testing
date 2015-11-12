@@ -27,10 +27,8 @@ block content
             ul.dropdown-menu
               li(value='votes' ng-click="sort = '-votes'")
                 a(ng-click="sortBy('Votes');") Votes
-              li
-                a(ng-click="sortBy('Dates')") Dates
-              li
-                a(ng-click="sortBy('Time')") Time
+              li(ng-click="sort = '-time'")
+                a(ng-click="sortBy('Date');") Dates
   .container
     .row
       .col-md-8.col-md-offset-2(ng-show='showForm' ng-cloak)
@@ -65,7 +63,7 @@ block content
                 p {{post.description}}
                 p
                   i(class="glyphicon glyphicon-time")
-                    | Time  |
+                    | {{post.time | amCalendar}}  |
                   i(class="glyphicon glyphicon-comment" ng-click='postComments()')
                     | {{post.comments.length}}
                     ng-pluralize(count="post.comments.length" when="{'0': 'comments', '1': 'comment', 'other': 'comments'}")

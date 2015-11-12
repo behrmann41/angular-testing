@@ -1,1 +1,1 @@
-var app = angular.module('redditClone', [])
+var app = angular.module('redditClone', ['angularMoment'])
