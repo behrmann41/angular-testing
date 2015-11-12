@@ -1,3 +1,3 @@
 app.controller('FiltersController', function ($scope){
-  $scope.hello = 'hello'
+  $scope.hello = 'hello_world'
 })
