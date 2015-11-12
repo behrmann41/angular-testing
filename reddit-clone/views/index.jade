@@ -46,7 +46,7 @@ block content
           input.form-control(id='description' ng-class="{invalid: formPost.description.$error.required}" name="description" ng-model='description' placeholder="Enter a description" required)
           p.text-danger(ng-show="formPost.description.$error.required") Please Enter a Title
           input.btn.btn-info(ng-disabled="formPost.$invalid" ng-click='submitPost(formPost.$valid)' value='Submit Post' id='submitBtn')
-    .row(ng-repeat='post in posts | orderBy: sort | filter: search')
+    .row(class='post' ng-repeat='post in posts | orderBy: sort | filter: search')
       .col-md-12
         .row
           .col-md-3

@@ -41,7 +41,7 @@ a {
 .bad {
   color: red;
 }
-/*
+
 .post.ng-enter {
   animation: fadeIn 1s;
 }
@@ -55,4 +55,4 @@ a {
 }
 
 .submit-form.ng-hide-add {
-  animation: zoomOut 1s;*/
+  animation: zoomOut 1s;
