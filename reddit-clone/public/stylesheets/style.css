@@ -33,3 +33,26 @@ a {
 #addComment {
   cursor: pointer;
 }
+
+.good {
+  color: green;
+}
+
+.bad {
+  color: red;
+}
+/*
+.post.ng-enter {
+  animation: fadeIn 1s;
+}
+
+.post.ng-leave {
+  animation: fadeOut 1s;
+}
+
+.submit-form.ng-hide-remove {
+  animation: zoomIn 1s;
+}
+
+.submit-form.ng-hide-add {
+  animation: zoomOut 1s;*/

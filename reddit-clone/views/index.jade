@@ -27,11 +27,11 @@ block content
             ul.dropdown-menu
               li(value='votes' ng-click="sort = '-votes'")
                 a(ng-click="sortBy('Votes');") Votes
-              li(ng-click="sort = '-time'")
-                a(ng-click="sortBy('Date');") Dates
+              li(ng-click="sort = 'time'")
+                a(ng-click="sortBy('Time');") Time
   .container
     .row
-      .col-md-8.col-md-offset-2(ng-show='showForm' ng-cloak)
+      .col-md-8.col-md-offset-2(ng-show='showForm' class="submit-form" ng-cloak)
         form(name='formPost' novalidate)
           label(for='title') Title
           input.form-control(id='title' ng-class="{invalid: formPost.title.$error.required}" name='title' ng-model='title' placeholder="Enter Title" required)
@@ -56,7 +56,7 @@ block content
             h3 {{post.title}} |
               i(ng-click='upvote()' class='glyphicon glyphicon-upload')
               i(ng-click='downvote()' class='glyphicon glyphicon-download') |
-              span {{post.votes}}
+              span(ng-class="{good: post.votes > 0, bad: post.votes < 0}") {{post.votes}}
             p.pull-right By: {{post.author}}
             .row
               .col-md-11
