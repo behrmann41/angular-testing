@@ -1,0 +1,26 @@
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}*/
+
+.top-margin {
+  margin-top: 20px;
+}
+
+.thumbnail > img {
+  height: 400px;
+  width: 300px;
+}
+
+.thumbnail:hover {
+  animation: pulse 1s;
+}
+
+img.pull-right {
+  height: 500px;
+  width: 400px;
+}

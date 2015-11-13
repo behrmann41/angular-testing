@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="movieSearch">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='/javascripts/app.js'></script>
+    <script type="text/javascript" src='/javascripts/controllers.js'></script>
+    <base href="/">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href='/movies'>Movies</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="row" ng-controller="MovieController">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="page-header">
+          <h1 class="text-center">Movie Search <small>Enter a Movie By Title</small></h1>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" ng-model="title" placeholder="Movie Title...">
+          <button ng-click="search()" class="btn btn-info top-margin">Search <i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+      <div class="container" ng-view></div>
+    </div>
+  </body>
+</html>
