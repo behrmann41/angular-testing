@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Chat App</h1>
+  <div ng-repeat='message in messages'>
+    <p>
+      {{message.name}} said {{message.content}}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <form>
+        <label>Name</label>
+        <input class="form-control" name='name' ng-model='name' type='text'>
+        <label>Message</label>
+        <input class="form-control" name='message' ng-model='message' type='text'>
+        <button class="btn btn-default" ng-click="submit()">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <a href="/">Zen</a>
+</div>
