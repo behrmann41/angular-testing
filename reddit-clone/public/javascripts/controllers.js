@@ -28,7 +28,7 @@ app.controller('CloneController', function($scope){
                           author: this.author,
                           description: this.description,
                           imageUrl: this.imageUrl,
-                          time: new Date(),
+                          time: Date.now(),
                           comments: [],
                           votes: 0
                         }
